@@ -18,10 +18,10 @@ namespace Implementation.DataAccessImplementaion.UnitOfWorkImplementaion
             _tenantInformationRepository = tenantInformationRepository;
         }
 
-        public async Task<List<TenantInformation>> GetTenantInformations()
+        public async Task<TenantInformation> GetTenantInformations(string tenantName)
         {
             // Method to get the UserId based on username
-            return await _tenantInformationRepository.GetTenantDetails();
+            return await _tenantInformationRepository.GetTenantDetails(tenantName);
         }
     }
 }

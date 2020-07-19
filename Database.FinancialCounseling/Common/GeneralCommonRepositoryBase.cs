@@ -1,48 +1,59 @@
-﻿using Abstraction.CommonInterfaces;
+﻿using Database.Abstraction.Common;
+
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace Implementation.Common
+namespace Database.Common
 {
-    public class CommonRepositoryBase<T> : IRepositoryBase<T> where T: class
+   
+    public abstract class GeneralCommonRepositoryBase<T> : IRepository<T>
+        where T : class
     {
-        private readonly DbContext dataContext;
-
-        private DbSet<T> dbSet;
-
-        public DbSet<T> dbSetBase
+        
+        protected GeneralCommonRepositoryBase()
         {
-            get
-            {
-                return dbSet;
-            }
-            set
-            {
-                dbSet = value;
-            }
         }
-        public void Add(T entity)
+
+        
+        protected GeneralCommonRepositoryBase(IDbContextCore context)
+        {
+            dataContext = (DbContext)context;
+            if (dataContext != null)
+                this.dbSet = this.dataContext.Set<T>();
+        }
+
+        
+        private DbContext dataContext;
+
+       
+        private readonly DbSet<T> dbSet;
+
+        
+        public virtual void Add(T entity)
         {
             this.dbSet.Add(entity);
         }
 
+        
         public virtual void Update(T entity)
         {
             this.dbSet.Attach(entity);
             dataContext.Entry(entity).State = EntityState.Modified;
         }
 
+      
         public virtual void Delete(T entity)
         {
             dbSet.Remove(entity);
         }
 
+        
         public void DeleteById(int id)
         {
             var entity = GetById(id);
@@ -50,7 +61,7 @@ namespace Implementation.Common
                 dbSet.Remove(entity);
         }
 
-
+        
         public virtual void Delete(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
@@ -58,12 +69,13 @@ namespace Implementation.Common
                 dbSet.Remove(obj);
         }
 
-
+       
         public virtual T GetById(int id)
         {
             return dbSet.Find(id);
         }
 
+      
         public virtual IEnumerable<T> GetAll()
         {
             IEnumerable<T> returnvalues;
@@ -72,6 +84,7 @@ namespace Implementation.Common
 
         }
 
+       
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> returnvalues;
@@ -80,11 +93,13 @@ namespace Implementation.Common
 
         }
 
+        
         public T GetBy(Expression<Func<T, bool>> where)
         {
             return dbSet.Where(where).FirstOrDefault<T>();
         }
 
+      
         public virtual IQueryable<T> Find(Expression<Func<T, bool>> predicate)
         {
             IEnumerable<T> enumerable = dataContext.Set<T>().Where(predicate);
@@ -93,7 +108,7 @@ namespace Implementation.Common
             return queryable;
         }
 
-
+      
         public IQueryable<T> GetIncluding(params Expression<Func<T, object>>[] includes)
         {
             if (includes != null)
@@ -126,7 +141,7 @@ namespace Implementation.Common
         //}
         public IEnumerable<T> Include(params Expression<Func<T, object>>[] includes)
         {
-            //   IDbSet<T> dbSet = Context.Set<T>();
+         //   IDbSet<T> dbSet = Context.Set<T>();
 
             IIncludableQueryable<T, object> dbSet = null;
 
@@ -139,7 +154,7 @@ namespace Implementation.Common
             return query ?? dbSet;
         }
 
-
+       
         public virtual void AddBulkInsert(IList<T> entity)
         {
             dataContext.BulkInsert<T>(entity);

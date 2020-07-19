@@ -36,7 +36,7 @@ namespace Implementation.MultiTenancy
         }
 
         
-        public DbContextOptionsBuilder<TContext> SetConnectionString<TContext>(DbContextOptionsBuilder<TContext> contextOptionsBuilder, string connectionString, string databaseName, string serverPathName) where TContext : DbContext
+        public DbContextOptionsBuilder<TContext> SetConnectionString<TContext>(DbContextOptionsBuilder<TContext> contextOptionsBuilder, string connectionString, string databaseName, string serverPathName, string userName, string password) where TContext : DbContext
         {
             if (string.IsNullOrEmpty(databaseName) && string.IsNullOrEmpty(serverPathName))
             {
@@ -45,7 +45,7 @@ namespace Implementation.MultiTenancy
             }
             else
             {
-                var connection = string.Format(connectionString, serverPathName, databaseName);
+                var connection = string.Format(connectionString, serverPathName, databaseName,userName,password);
                 //set connection string based on tenantid
                 return contextOptionsBuilder.UseSqlServer(connection);
             }

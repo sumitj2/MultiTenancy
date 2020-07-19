@@ -7,7 +7,7 @@ namespace Implementation.MultiTenancy.MultitenancyInterface
 {
     public interface IContextFactory
     {
-        IDbContextBase DbContext { get; }
+        IDbContextBase GetDbContext();
 
         string DatabaseName { get; set; }
 

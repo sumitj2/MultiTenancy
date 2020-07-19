@@ -22,9 +22,6 @@ namespace Implementation.MultiTenancy
         
         IConfiguration _configuration;
 
-        /// <summary>
-        /// Private property for injecting dependency IUserDetailsUnitOfWork interface
-        /// </summary>
         //private readonly IUserDetailsUnitOfWork _iUserDetailsUnitOfWork;
 
       
@@ -37,12 +34,46 @@ namespace Implementation.MultiTenancy
             _configuration = configuration;
         }
 
-        public IDbContextBase DbContext => new GenericTranDBContext(ChangeDatabaseNameInConnectionString(DatabaseName, ServerPathName).Options);
+        public IDbContextBase GetDbContext()
+        {
+            return new GenericTranDBContext(ChangeDatabaseNameInConnectionString(DatabaseName, ServerPathName, userName, password).Options);
+        }
 
-        
-        private string ExistingDatabaseName;
+        private string ExistingPassword;
+        public string password
+        {
+            get
+            {
+                if ((ExistingPassword == null && ExistingPassword == string.Empty))
+                {
+                    ExistingPassword = "";
+                }
+                return ExistingPassword;
+            }
+            set
+            {
+                ExistingPassword = value;
+            }
+        }
 
-    
+        private string ExistingUserName;
+        public string userName
+        {
+            get
+            {
+                if ((ExistingUserName == null && ExistingUserName == string.Empty))
+                {
+                    ExistingUserName = "";
+                }
+                return ExistingUserName;
+            }
+            set
+            {
+                ExistingUserName = value;
+            }
+        }
+
+        private string ExistingDatabaseName;    
         public string DatabaseName
         {
             get
@@ -78,7 +109,7 @@ namespace Implementation.MultiTenancy
         }
 
      
-        private DbContextOptionsBuilder<GenericTranDBContext> ChangeDatabaseNameInConnectionString(string databaseName, string serverPathName)
+        private DbContextOptionsBuilder<GenericTranDBContext> ChangeDatabaseNameInConnectionString(string databaseName, string serverPathName, string userName ,string password)
         {
             //  Create Connection String Builder using Default connection string
             var connectionBuilder = _databaseType.GetConnectionBuilder(_connectionOptions.Value.DefaultConnection);
@@ -92,7 +123,7 @@ namespace Implementation.MultiTenancy
             connectionString = _configuration.GetConnectionString("TransStatesConnectionString");
 
             //set connection string based on tenantid passed in header
-            _databaseType.SetConnectionString(contextOptionsBuilder, connectionString, databaseName, serverPathName);
+            _databaseType.SetConnectionString(contextOptionsBuilder, connectionString, databaseName, serverPathName,userName,password);
 
 
             return contextOptionsBuilder;

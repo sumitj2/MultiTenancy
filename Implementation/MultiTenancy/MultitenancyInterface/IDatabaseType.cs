@@ -21,6 +21,6 @@ namespace Implementation.DataAccessImplementaion.MultitenancyInterface
 
         DbConnectionStringBuilder GetConnectionBuilder(string connectionString);
 
-        DbContextOptionsBuilder<TContext> SetConnectionString<TContext>(DbContextOptionsBuilder<TContext> contextOptionsBuilder, string connectionString, string databaseName, string serverPathName) where TContext : DbContext;
+        DbContextOptionsBuilder<TContext> SetConnectionString<TContext>(DbContextOptionsBuilder<TContext> contextOptionsBuilder, string connectionString, string databaseName, string serverPathName, string userName, string password) where TContext : DbContext;
     }
 }

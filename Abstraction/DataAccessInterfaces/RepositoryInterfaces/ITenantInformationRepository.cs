@@ -8,6 +8,6 @@ namespace Abstraction.DataAccessInterfaces.RepositoryInterfaces
 {
     public interface ITenantInformationRepository
     {
-        Task<List<TenantInformation>> GetTenantDetails();
+        Task<TenantInformation> GetTenantDetails(string tenantName);
     }
 }

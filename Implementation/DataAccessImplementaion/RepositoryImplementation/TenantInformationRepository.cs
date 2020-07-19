@@ -23,13 +23,13 @@ namespace Implementation.DataAccessImplementaion.RepositoryImplementation
 
         //}
 
-        public async Task<List<TenantInformation>> GetTenantDetails()
+        public async Task<TenantInformation> GetTenantDetails(string tenantName)
         {
-           var tenantInformation = await Task.Run(() =>GetAll());
+          // var tenantInformation = await Task.Run(() =>GetAll());
 
-         //   var tenantInformation = await Task.Run(() => Find(x => x.TenantId == 1).ToList());
+           var tenantInformation = await Task.Run(() => Find(x => x.TenantName == tenantName).FirstOrDefault());
             
-            return tenantInformation.ToList();
+            return tenantInformation;
         }
     }
 }

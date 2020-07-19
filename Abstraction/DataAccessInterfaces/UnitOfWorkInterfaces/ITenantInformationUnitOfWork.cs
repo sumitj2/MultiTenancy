@@ -8,6 +8,6 @@ namespace Abstraction.DataAccessInterfaces.UnitOfWorkInterfaces
 {
     public interface ITenantInformationUnitOfWork
     {
-        Task<List<TenantInformation>> GetTenantInformations();
+        Task<TenantInformation> GetTenantInformations(string tenantName);
     }
 }

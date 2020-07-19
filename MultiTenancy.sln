@@ -3,25 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenancy", "MultiTenancy\MultiTenancy.csproj", "{5F72B7F9-7658-4E95-9391-2A9C9CF6C3E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiTenancy", "MultiTenancy\MultiTenancy.csproj", "{5F72B7F9-7658-4E95-9391-2A9C9CF6C3E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{FB74D768-A237-4624-8CB4-382DEE6DB037}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{9540F208-DB7B-4CB3-A1CD-106B078773E2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{DACB63E9-F2A2-4D6B-956E-E2F6D62AA653}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogicAbstraction", "BusinessLogicAbstraction\BusinessLogicAbstraction.csproj", "{3A9F09A3-C859-4D35-9BC0-9ABE3AFD1130}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstraction", "Abstraction\Abstraction.csproj", "{3F697058-728D-49A4-BB4B-0618A21AA0FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogicImplementation", "BusinessLogicImplementation\BusinessLogicImplementation.csproj", "{D47B3925-9850-491D-BF95-309B25BF97D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implementation", "Implementation\Implementation.csproj", "{25D8F628-B43B-49E2-A2F6-A8E42818BE43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contract", "Contract\Contract.csproj", "{EB929A68-5722-41A0-9C1B-2268FE75357E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enitities", "Enitities\Enitities.csproj", "{3397D050-2B39-48AE-BDE1-95A0BEB0AAA3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{956DC770-7838-4577-92BD-EF4AF7F83B63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicAbstraction", "BusinessLogicAbstraction\BusinessLogicAbstraction.csproj", "{3A9F09A3-C859-4D35-9BC0-9ABE3AFD1130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database.Abstraction", "Database.Abstraction.FinancialCounseling\Database.Abstraction.csproj", "{06BB038E-9B82-4768-AF63-D0FD8C1A42F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicImplementation", "BusinessLogicImplementation\BusinessLogicImplementation.csproj", "{D47B3925-9850-491D-BF95-309B25BF97D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database.Implementation", "Database.FinancialCounseling\Database.Implementation.csproj", "{0CA403D2-8A07-49D1-9AB0-B7D629616B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract", "Contract\Contract.csproj", "{EB929A68-5722-41A0-9C1B-2268FE75357E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database.Entities", "Database.FinancialCounseling.Entities\Database.Entities.csproj", "{672F8566-B656-402F-8099-BAEBA70E716F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,18 +33,6 @@ Global
 		{5F72B7F9-7658-4E95-9391-2A9C9CF6C3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F72B7F9-7658-4E95-9391-2A9C9CF6C3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F72B7F9-7658-4E95-9391-2A9C9CF6C3E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F697058-728D-49A4-BB4B-0618A21AA0FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F697058-728D-49A4-BB4B-0618A21AA0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F697058-728D-49A4-BB4B-0618A21AA0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F697058-728D-49A4-BB4B-0618A21AA0FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25D8F628-B43B-49E2-A2F6-A8E42818BE43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25D8F628-B43B-49E2-A2F6-A8E42818BE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25D8F628-B43B-49E2-A2F6-A8E42818BE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25D8F628-B43B-49E2-A2F6-A8E42818BE43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3397D050-2B39-48AE-BDE1-95A0BEB0AAA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3397D050-2B39-48AE-BDE1-95A0BEB0AAA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3397D050-2B39-48AE-BDE1-95A0BEB0AAA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3397D050-2B39-48AE-BDE1-95A0BEB0AAA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A9F09A3-C859-4D35-9BC0-9ABE3AFD1130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A9F09A3-C859-4D35-9BC0-9ABE3AFD1130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A9F09A3-C859-4D35-9BC0-9ABE3AFD1130}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,18 +45,30 @@ Global
 		{EB929A68-5722-41A0-9C1B-2268FE75357E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB929A68-5722-41A0-9C1B-2268FE75357E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB929A68-5722-41A0-9C1B-2268FE75357E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06BB038E-9B82-4768-AF63-D0FD8C1A42F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06BB038E-9B82-4768-AF63-D0FD8C1A42F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06BB038E-9B82-4768-AF63-D0FD8C1A42F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06BB038E-9B82-4768-AF63-D0FD8C1A42F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA403D2-8A07-49D1-9AB0-B7D629616B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA403D2-8A07-49D1-9AB0-B7D629616B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA403D2-8A07-49D1-9AB0-B7D629616B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA403D2-8A07-49D1-9AB0-B7D629616B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{672F8566-B656-402F-8099-BAEBA70E716F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672F8566-B656-402F-8099-BAEBA70E716F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672F8566-B656-402F-8099-BAEBA70E716F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672F8566-B656-402F-8099-BAEBA70E716F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5F72B7F9-7658-4E95-9391-2A9C9CF6C3E3} = {FB74D768-A237-4624-8CB4-382DEE6DB037}
-		{3F697058-728D-49A4-BB4B-0618A21AA0FF} = {DACB63E9-F2A2-4D6B-956E-E2F6D62AA653}
-		{25D8F628-B43B-49E2-A2F6-A8E42818BE43} = {DACB63E9-F2A2-4D6B-956E-E2F6D62AA653}
-		{3397D050-2B39-48AE-BDE1-95A0BEB0AAA3} = {DACB63E9-F2A2-4D6B-956E-E2F6D62AA653}
 		{3A9F09A3-C859-4D35-9BC0-9ABE3AFD1130} = {9540F208-DB7B-4CB3-A1CD-106B078773E2}
 		{D47B3925-9850-491D-BF95-309B25BF97D0} = {9540F208-DB7B-4CB3-A1CD-106B078773E2}
 		{EB929A68-5722-41A0-9C1B-2268FE75357E} = {FB74D768-A237-4624-8CB4-382DEE6DB037}
+		{06BB038E-9B82-4768-AF63-D0FD8C1A42F9} = {956DC770-7838-4577-92BD-EF4AF7F83B63}
+		{0CA403D2-8A07-49D1-9AB0-B7D629616B1E} = {956DC770-7838-4577-92BD-EF4AF7F83B63}
+		{672F8566-B656-402F-8099-BAEBA70E716F} = {956DC770-7838-4577-92BD-EF4AF7F83B63}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B58B9640-EDF5-49E0-B3D2-66D96B33C112}

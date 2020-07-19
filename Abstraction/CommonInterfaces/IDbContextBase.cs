@@ -10,7 +10,7 @@ namespace Abstraction.CommonInterfaces
 {
     public interface IDbContextBase  : IDisposable
     {
-        int SaveChanges();
+        int SaveChanges();  
 
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
@@ -19,7 +19,7 @@ namespace Abstraction.CommonInterfaces
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
         Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken);
-        new void Dispose();
+       new void Dispose();
 
 
         DbSet<TEntity> Set<TEntity>()

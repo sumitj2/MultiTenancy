@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abstraction.DataAccessInterfaces.UnitOfWorkInterfaces;
-using Contract;
+using Database.Abstraction.Contract.UnitOfWork;
+using Database.Entities;
 using Microsoft.AspNetCore.Mvc;
-using ent=Enitities;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,17 +15,17 @@ namespace MultiTenancy.Controllers
     [ApiController]
     public class TenantsDetails : ControllerBase
     {
-        private readonly ITenantInformationUnitOfWork _tenantInformationUnitOfWork;
-        public TenantsDetails(ITenantInformationUnitOfWork tenantInformationUnitOfWork)
+        private readonly ITenantInfoUnitOfWork _tenantInformationUnitOfWork;
+        public TenantsDetails(ITenantInfoUnitOfWork tenantInformationUnitOfWork)
         {
             _tenantInformationUnitOfWork = tenantInformationUnitOfWork;
         }
 
         [HttpGet]
-        public async Task<List<ent.TenantInformation>> GetAllTenants()
+        public async Task<TenantInformation> GetAllTenants(string tenantName)
         {            
-            var result = await _tenantInformationUnitOfWork.GetTenantInformations();
-            return result.ToList();
+            var result = await _tenantInformationUnitOfWork.GetTenantInformationsByTenantName(tenantName);
+            return result;
         }
     }
 }
